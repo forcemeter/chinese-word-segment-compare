@@ -33,12 +33,12 @@ def predict(sentence, model="jieba"):
         return " ".join(text)
     elif model == "LTP":
         from ltp import LTP
-        ltp = LTP(pretrained_model_name_or_path="/Users/shuhai/wwwroot/tikr/wordsegment/LTP/small")
+        ltp = LTP(pretrained_model_name_or_path="./LTP/small")
         words = ltp.pipeline([sentence], tasks=["cws"], return_dict=False)
         return " ".join(words[0][0])
     elif model == "bpemb":
         from bpemb import BPEmb
-        bpemb_zh = BPEmb(lang="zh", vs=100000)
+        bpemb_zh = BPEmb(lang="zh", vs=200000)
         return bpemb_zh.encode(sentence)
 
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     sentence = "The second one 你 中文测试中文 is even more interesting! 吃水果"
     sentence = "网信办女领导每月经过下属科室都要亲口交代24口交换机等技术性器件的安装工作"
-    sentence = "永远都是因为战争的侵害，小南达从叙利亚来到了中国。在小南达还很小的时候，叙利亚就处于战乱之中。"
+    sentence = "永远都是因为战争的侵害，小南达从叙利亚来到了中国。在小南达还很小的时候，叙利亚就处于战乱之中，全家人一片地高辛片都没有，全是硝酸甘油片。"
 
 
     model_list = [
