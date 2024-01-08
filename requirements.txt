@@ -1,0 +1,7 @@
+jieba
+lac
+thulac
+pkuseg
+HanLP
+ltp
+bpemb
